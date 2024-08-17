@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños, Mamá!</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff4b1f, #1fddff);
+            animation: backgroundAnimation 8s infinite alternate;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .message {
+            z-index: 10;
+            max-width: 700px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            animation: messagePop 2s ease;
+        }
+
+        .message h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .message p {
+            font-size: 2em;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: -150px;
+            width: 80px;
+            height: 120px;
+            background: radial-gradient(circle at 30% 30%, #ff6347, #ff4500);
+            border-radius: 50%;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite, moveBalloon 15s linear infinite;
+        }
+
+        .balloon::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -30px;
+            width: 2px;
+            height: 100px;
+            background: #fff;
+            transform: translateX(-50%);
+        }
+
+        .balloon:nth-child(2) { left: 10%; animation-delay: 2s; background: radial-gradient(circle at 30% 30%, #ffdf47, #ffd700); }
+        .balloon:nth-child(3) { left: 20%; animation-delay: 3s; background: radial-gradient(circle at 30% 30%, #47ff63, #00ff00); }
+        .balloon:nth-child(4) { left: 30%; animation-delay: 4s; background: radial-gradient(circle at 30% 30%, #4763ff, #0000ff); }
+        .balloon:nth-child(5) { left: 40%; animation-delay: 1.5s; background: radial-gradient(circle at 30% 30%, #ff4763, #ff0047); }
+        .balloon:nth-child(6) { left: 50%; animation-delay: 3.5s; background: radial-gradient(circle at 30% 30%, #6347ff, #4500ff); }
+        .balloon:nth-child(7) { left: 60%; animation-delay: 2.5s; background: radial-gradient(circle at 30% 30%, #47ffdf, #00ffd7); }
+        .balloon:nth-child(8) { left: 70%; animation-delay: 4.5s; background: radial-gradient(circle at 30% 30%, #ff6347, #ff4500); }
+        .balloon:nth-child(9) { left: 80%; animation-delay: 2.2s; background: radial-gradient(circle at 30% 30%, #ffdf47, #ffd700); }
+        .balloon:nth-child(10) { left: 90%; animation-delay: 3.7s; background: radial-gradient(circle at 30% 30%, #47ff63, #00ff00); }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes moveBalloon {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100vw); }
+        }
+
+        @keyframes messagePop {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes closeMessage {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.1) rotateX(90deg); opacity: 0; }
+        }
+
+        @keyframes revealLove {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .love-message {
+            display: none;
+            font-size: 4em;
+            animation: revealLove 3s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            <h1>¡Feliz Cumpleaños, Mamá!</h1>
+            <p>Gracias por cada sonrisa, cada consejo, y cada momento compartido. Eres el pilar que
+                sostiene nuestra familia, y en este día tan especial, quiero que sepas lo agradecido
+                que estoy por tenerte como mi mamá Tu amor incondicional y tu sabiduría han hecho de mí quien soy hoy. Gracias por ser mi guía y mi mejor amiga. ¡Te deseo un día tan increíble como tú!</p>
+        </div>
+        <div class="love-message">¡Te Amo!</div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+    </div>
+    
+
+    <script>
+        setTimeout(() => {
+            const message = document.querySelector('.message');
+            message.style.animation = 'closeMessage 3s ease forwards';
+            
+            setTimeout(() => {
+                message.style.display = 'none';
+                const loveMessage = document.querySelector('.love-message');
+                loveMessage.style.display = 'block';
+            }, 3000);
+        }, 15000);
+    </script>
+</body>
+</html>
